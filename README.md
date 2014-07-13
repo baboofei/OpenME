@@ -2,17 +2,20 @@ OpenME
 ======
 
 OpenME is an open sourced clone of the popular anime forum service Missevan.cn
+OpenME是一个开放源代码的对国内著名的二次元社交服务Missevan.cn的复制品
 
-For bug report or usage questions, one should post it in the Github issue section, or create a pull request. Users and developers are welcomed to email to me at:
-
-[Email me!](mailto:babooclaude@hotmail.com)
+For bug report or usage questions, one should post it in the Github issue section, or create a pull request. Users and developers are welcomed to email to me at [my hotmail mailbox](mailto:babooclaude@hotmail.com)
 
 Chinese documentation
 ------
 
 Even though me (BabooClaude) speak Chinese as my mother-language, I felt more comfortable documenting the OpenME software kit in English, as my English proficiency is sufficient for such task.
 
+虽然我（BabooClaude, Syblla君）的母语是中文，我却感觉在开发和编撰OpenME的文档时使用英语更惬意。我的英语水平足以使我无障碍地在这门语言下工作。
+
 If you are willing to translate any of the documentation / readme into Chinese, feel free to contact me. I would personally appreciate your contribution in advance. Thank you, stranger!
+
+如果你愿意协助/主导OpenME的文档或是Readme的话，请尽管联系我。我个人先表示对你和你的贡献的感谢。谢啦，陌生的好人！
 
 Missevan.cn
 ======
@@ -48,9 +51,12 @@ Implementation
 Missevan.cn is not open sourced and thus risky to be used. Its original creator, Mowangsky, has not yet replied to any of the requests urging him to release the source code of Missevan.cn
 
 Copyright issues
+版权，著作权，及知识产权信息与问题
 ------
 
 OpenME, unlike Missevan.cn, is open sourced and free for redistribution under its license. Its implementation is originally created without any help from the Missevan.cn developers. It does not violate any of the copyright laws in China or the United States. However, one should be aware that OpenME did in fact take its idea and concepts from Missevan.cn. The design of a forum + chatroom + billboard service came directly from Missevan.cn.
+
+OpenME与Missevan.cn的最大不同点在于OpenME是可在其许可证的条款下自由发行的自由软件。OpenME的实现是在没有任何来自Missevan.cn或其原作者的帮助/源代码的情况下作成的。这样复制的行为并没有违反任何在中国或美国的版权或著作权法律。但是，任何使用或再发行OpenME套件的使用者应该认识到，OpenME的确复制了Missevan.cn的概念及设计。揭示板+聊天室+公告板的服务设计是直接从Missevan处拷贝而来的。
 
 OpenME's original features
 ======
@@ -97,3 +103,5 @@ License
 ------
 
 The OpenME software, excluding its external libraries, are licensed under the GNU General Public License Version 2 (GPLv2). A copy of the license should be obtained together when getting the source code of this software.
+
+OpenME软体套件，不包括外部使用的第三发库，可在GPLv2（革奴公共许可证第二版）下发行，再发行，和使用。在取得软件的源代码时一份许可证的副本已经被附上。
