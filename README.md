@@ -2,6 +2,7 @@ OpenME
 ======
 
 OpenME is an open sourced clone of the popular anime forum service Missevan.cn
+
 OpenME是一个开放源代码的对国内著名的二次元社交服务Missevan.cn的复制品
 
 For bug report or usage questions, one should post it in the Github issue section, or create a pull request. Users and developers are welcomed to email to me at [my hotmail mailbox](mailto:babooclaude@hotmail.com)
@@ -50,8 +51,7 @@ Implementation
 
 Missevan.cn is not open sourced and thus risky to be used. Its original creator, Mowangsky, has not yet replied to any of the requests urging him to release the source code of Missevan.cn
 
-Copyright issues
-版权，著作权，及知识产权信息与问题
+Copyright issues 版权，著作权，及知识产权信息与问题
 ------
 
 OpenME, unlike Missevan.cn, is open sourced and free for redistribution under its license. Its implementation is originally created without any help from the Missevan.cn developers. It does not violate any of the copyright laws in China or the United States. However, one should be aware that OpenME did in fact take its idea and concepts from Missevan.cn. The design of a forum + chatroom + billboard service came directly from Missevan.cn.
