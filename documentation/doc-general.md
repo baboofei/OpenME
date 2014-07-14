@@ -1,7 +1,8 @@
 OpenME Software Kit Documentation
 ======
 
-The OpenME documentation, including detailed introduction to its interface, implementation, and design. This documentation should walk you through developing, deploying, and maintaining of the OpenME software kit.
+The OpenME documentation, including detailed introduction to its interface, implementation, and design. 
+This documentation should walk you through developing, deploying, and maintaining of the OpenME software kit.
 
 The documentation is under the GPLv2 license.
 
@@ -9,6 +10,7 @@ Version
 ------
 
 Current Software Version : 0.0.01
+
 Current Documentation Version : 0.0.01-Dev
 
 Recent update / changelog
@@ -54,7 +56,7 @@ The documentation list provides entries to different documentation pages.
 Index of interfaces
 ------
 
-Currently Nothing
+    Currently Nothing
 
 Credit
 ======

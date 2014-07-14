@@ -18,6 +18,22 @@ If you are willing to translate any of the documentation / readme into Chinese, 
 
 如果你愿意协助/主导OpenME的文档或是Readme的话，请尽管联系我。我个人先表示对你和你的贡献的感谢。谢啦，陌生的好人！
 
+Note for contributors
+------
+
+If you found any potential issue / bug in the software kit, it is greatly appreciated that you submit a Github issue, before you decide wether to fix it on your own or report it to the current developers.
+
+Please check the OpenME Github wiki before you report any issue. The wiki contains full documentation of the code and should be used in said case.
+
+If you have finished a solution to any potential issue in the code, you might want to check the following before submitting it:
+
+1. Is your code compliant with the current license?
+2. Does your code have a well written document addressing its design and implementation?
+3. Is your code clean and comply with the current code style?
+4. Do you have a solution, or will to fix your code if any bug / issue is found in it?
+
+If your submission cannot meet any of the said descriptions, you might want to revise it as it has a large chance of being rejected. Sorry, but the overall quality of the software is the primary concern of the project team.
+
 Missevan.cn
 ======
 
