@@ -5,11 +5,11 @@ OpenME is an open sourced clone of the popular anime forum service Missevan.cn
 
 OpenME是一个开放源代码的对国内著名的二次元社交服务Missevan.cn的复制品
 
-## Bug report, issues, and feature requests
+### Bug report, issues, and feature requests
 
 For bug report or usage questions, one should post it in the Github issue section, or create a pull request. Users and developers are welcomed to email to me at [my hotmail mailbox](mailto:babooclaude@hotmail.com)
 
-## Current development progress
+### Current development progress
 
 Version 0.0.1 under development.
 No estimated development schedule availiable.
