@@ -11,12 +11,6 @@ Version
 Current Software Version : 0.0.01
 Current Documentation Version : 0.0.01-Dev
 
-Credit
-------
-
-Current developer(s):
-1. BabooClaude (Syblla)
-
 Recent update / changelog
 ------
 
@@ -29,6 +23,8 @@ This section provides an entry to the OpenME documentation, including detailed u
 
 File Tree
 ------
+
+The file tree provides information for each file included in the OpenME kit.
 
 >   /                  // The OpenME root directory
 >   |
@@ -47,7 +43,24 @@ File Tree
 List of documentations
 ------
 
+The documentation list provides entries to different documentation pages.
+
+>General documentation : [doc-general.md]()
+>|
+>|---Core utilities documentation : [doc-core.md]()
+>|   |
+>|   |---Core : User documentation : [doc-core-usr.md]()
+
 Index of interfaces
 ------
 
+Currently Nothing
 
+Credit
+======
+
+Current developer(s):
+BabooClaude(Syblla)
+
+Documentation editor(s):
+BabooClaude(Syblla)
