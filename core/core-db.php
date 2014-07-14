@@ -38,17 +38,23 @@
 	// 
 	// Databases and tables
 	// 
-	// 		Note that 
-	// 
+	// 		Note that databases and tables are different concepts in SQL databases.
+	// 		Libraries should read configuration files to determine which databse
+	// 		should their tables be placed under. 
+	// 		
+	// 		For example, a user avatar provider library should place its databasesmysql 
+	// 		linking user to avatars under 'datahost_usrdb_dbname' database. This way
+	// 		administrative tools can better organize resources and backup utilities.
+	//  
 	// This core function library defined several database table structures :
 	// 
-	// 		db_core_user
+	// 		tb_core_user
 	// 
 	// 			user_id 	user_name 		password 		crt_time 		login_time 		login_attempt		is_active
 	// 		
 	// 			integer 	varchar 		varchar 		timestamp 		timestamp 		tinyint 			boolean
 	// 		
-	// 		db_core_func
+	// 		tb_core_func
 	// 
 	// 			func_id		func_name 		func_param		func_return 	func_version	func_isinuse
 	//			
@@ -75,5 +81,24 @@
 	//				
 	//				datahost_usrdb_dbname	#Name of the user information database (db_core_user)
 	//				datahost_funcdb_dbname	#Name of the interface information database (db_core_func)
+	//				
+	//				# Automatic backup configuration
+	//				
+	//				backup_auto_enabled		#Indicates if auto backup will be used
+	//				backup_auto_interval	#Indicates how long time in days after previous auto backup will databases be backed up again.
+	//				backup_auto_host		#Host to store auto backup databases
+	//				backup_auto_usr			#User name for auto backup database
+	//				backup_auto_pwd			#Password for auto backup database
+	//				backup_auto_trigger_id	#Id for functions that will trigger auto backup even if time since last backup is not long enough.
+	//				backup_auto_dbs 		#Databases to be backed up in auto backups
+	//				
+	//				# General backup configuration
+	//				# Note that this will not override auto backup configurations
+	//				
+	//				backup_host 			#Host to store backups (aside from auto backups)
+	//				backup_usr 				#User name for backup database
+	//				backup_pwd 				#Password for backup database
+	//				backup_dbs 				#Databases to be backed up in backups
+	//				
 
 ?>

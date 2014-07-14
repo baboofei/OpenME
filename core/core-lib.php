@@ -22,6 +22,9 @@
 	// as a parameter. Core-lib thus determine which function to provide with the
 	// given version number
 	// 
+	// The core-lib core function library uses a database defined in core-db to 
+	// store information about interfaces.
+	// 
 	// Interface:
 	// 
 	// 		Configurations:
