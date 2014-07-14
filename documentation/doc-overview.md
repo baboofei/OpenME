@@ -46,11 +46,15 @@ Documentations of large projects should be carefully worded and organized, as di
 
 A project dictionary, however, will not be provided, as it takes extra effort to create said dictionary. One capiable of working in a open sourced project should have the ability of understanding and writting documentations using languages compliant with the previously done work.
 
-### Wiki and in-repo docs
+### Documentation in Markdown files
 
 The primary documentation will be the in-repo docs. These documentation will be clear off distracting informations - inclduing credits, developing progress, known issues, etc. - Documentations contained in the /documentation directory will always be kept up-to-date with the code.
 
+### Documentations in Github Wiki
+
 Wiki consists more information including the development progress and contribution information. These information, together with issues addressed in Github Issue, will be the primary way of communication between developers, maintainers, and users.
+
+### Documentations in source code files
 
 Inline comment, primarily ones formatted and placed in front of all source code files, are the most important documentations of all. They must be kept up-to-date with each modification, and detail interface information must be provided within these documentations.
 
@@ -59,15 +63,27 @@ Design of the software
 
 OpenME is designed under a post-MVC architecture.
 
+### Core
+
 The core function libraries, or "Core", provides very basic functions, supporting user validation, database control, push notification and realtime connetion, file type management, encryption for securities, etc. These functions are 'hidden' from the client-side interfaces once finished.
 
+### Libraries
+
 The "Libraries" provides advanced functions based on the "Core". Libraries allow features like avatar, user customized information, posts and forums etc. to be implemented. Libraries can be replaced by other third-party products. Links to third-party service providers (GPlus, Tencent, the original ME etc.) will as well be implemented in libraries. Libraries should as well be hidden from client-side's point of view.
+
+### Services
 
 "Services", unlike the above two parts of OpenME, are open to client-side calls. They return JSON objects (in the form of strings) containing meta data and actual information. Services are designed to be easily reused and ported. 
 
 For the ease of client side development, a standard JavaScript library providing basic functions to connect to services via ajax will be provided.
 
+### Administratives
+
 "Administratives" implements functions such as start and stop of software, initialization of database and configurations etc. Apart from what its name suggests, Administratives are not administrator tools. OpenME is designed to have no administrator users, thus providing absolute security and ease of management.
 
+### Configurations
+
 "Configurations" are JSON files with .config extensions, that contains configuration data used by Core and Libraries. Services should not use configuration files as they should not have their own management policies. Service should only be interfaces to libraries.
+
+
 
