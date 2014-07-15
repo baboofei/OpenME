@@ -12,7 +12,7 @@ For bug report or usage questions, one should post it in the Github issue sectio
 ### Current development progress
 
 Version 0.0.1 under development.
-No estimated development schedule availiable.
+No estimated development schedule available.
 
 Chinese documentation
 ------
@@ -28,7 +28,7 @@ If you are willing to translate any of the documentation / readme into Chinese, 
 Note for contributors
 ------
 
-If you found any potential issue / bug in the software kit, it is greatly appreciated that you submit a Github issue, before you decide wether to fix it on your own or report it to the current developers.
+If you found any potential issue / bug in the software kit, it is greatly appreciated that you submit a Github issue, before you decide whether to fix it on your own or report it to the current developers.
 
 Please check the OpenME Github wiki before you report any issue. The wiki contains full documentation of the code and should be used in said case.
 
@@ -52,12 +52,12 @@ Founded in 2010, Missevan.cn is one of the many popular fan-founded forums of an
 Features
 ------
 
-What made Missevan.cn truely different from any other forums of its type are its unique features allowing its users to truely cutomize their online appearance. These features, including:
+What made Missevan.cn truly different from any other forums of its type are its unique features allowing its users to truly customize their online appearance. These features, including:
 
 1. Avatars of its own genre, submitted by its users.
 2. Chatrooms
 3. Workshops allowing groups of users to collaboratively working on creation and distribution of avatars
-4. Currency used to purchase multiple categories of items, including avatars, invitation code for new user registration, and priviliges.
+4. Currency used to purchase multiple categories of items, including avatars, invitation code for new user registration, and privileges.
 5. Forum, categorized for different posts.
 6. Billboard, for ACG news.
 7. Voice clips from animes, which seemed to be a _violation_ of copyright.
@@ -84,14 +84,14 @@ OpenME与Missevan.cn的最大不同点在于OpenME是可在其许可证的条款
 OpenME's original features
 ======
 
-OpenME aims not only to reproduce Missevan.cn, but to introduce new features as well. OpenME will be more sociable than Missevan.cn, with its implementation aiming to be easily ported to mobile devices. OpenME can be distributed freely thus more than one instance of it can exist on the internet.
+OpenME aims not only to reproduce Missevan.cn, but to introduce new features as well. OpenME will be more sociable than Missevan.cn, with its implementation aiming to be easily ported to mobile devices. OpenME can be distributed freely thus more than one instance of it can exist on the Internet.
 
 It's free and of far more fun.
 
 OpenME's implementations
 ======
 
-OpenME is based on a post-MVC architecture, using only JSON objects to communicate with its clients. Its webservice oriented interface enables it to be ported easily to any device/client. Meanwhile, the core > libraries > services design of OpenME allows other developers to easily add new features to it, allowing third-party plugins to be added.
+OpenME is based on a post-MVC architecture, using only JSON objects to communicate with its clients. Its webservice oriented interface enables it to be ported easily to any device/client. Meanwhile, the core > libraries > services design of OpenME allows other developers to easily add new features to it, allowing third-party plug-ins to be added.
 
 Core
 ------
@@ -106,7 +106,7 @@ OpenME libraries implements the advanced functions of the OpenME kit. Libraries 
 Services
 ------
 
-Services provide the interface for client-side scripts to interact with. It returns standarlized JSON objects containing meta data for easy client-side development. Any developers skilled in basic JavaScript coding will be able to adopt the interfaces of OpenME and create their personalized interface.
+Services provide the interface for client-side scripts to interact with. It returns standardized JSON objects containing meta data for easy client-side development. Any developers skilled in basic JavaScript coding will be able to adopt the interfaces of OpenME and create their personalized interface.
 
 Others
 ------

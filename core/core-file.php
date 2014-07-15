@@ -66,9 +66,25 @@
 	// 				
 	// 				config_mode 				#mode of configuration loading
 	// 				config_write_validate		#validate if structure of configuration written is valid
+	// 				config_write_override 		#indicates if overriding existing configuration will be permitted
 	// 				
 	// 				
 	// 				
 	// 		Functions :
+
+	function core_file_load_config($file)
+	{
+		
+	}
+
+	function core_file_write_config($file)
+	{
+
+	}
+
+	function core_file_change_config($file)
+	{
+		
+	}
 
 ?>

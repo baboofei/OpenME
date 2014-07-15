@@ -29,8 +29,8 @@
 	// 
 	// 		core-usr : 
 	// 		
-	// 			Barely anything besides database controls. Core user control is design to work independently
-	// 			and no other libraries should interact with it.
+	// 			Barely anything besides database controls. Core user control is designed to work 
+	// 			independently and no other libraries should interact with it.
 	// 			
 	// 			1.	Database for user information storage (core-usr + core-db)
 	// 			2.	Configuration loading (core-usr + core-file)
@@ -53,5 +53,10 @@
 	// 			1.	Configuration loading (core-lib + core-file)
 	// 			2.	Library information storage (core-lib + core-db)
 	// 			3.	Library meta data loading (core-lib + core-file)
+	// 			
+	// 		core-crypto :
+	// 		
+	// 			1.	Configuration loading (core-crypto + core-file)
+	// 			2.	Encryption key storage (core-crypto + core-db)
 
 ?>

@@ -69,6 +69,7 @@
 	// 				database_default_host			#default host to be used for data storage
 	// 				database_default_user_name		#default user name to be used for said database
 	// 				database_default_user_password	#default password to be used for given user
-	// 				
+	
+				
 
 ?>
