@@ -62,9 +62,9 @@
 	//			
 	//		tb_core_file
 	//		
-	//			file_id 	file_name 		file_type 		file_keywords	file_size 		cache_time 			checksum 		requests
+	//			file_id 	file_name 		file_type 		file_keywords	file_size 		cache_time 			source 			checksum 		requests
 	//			
-	//			integer 	varchar 		varchar 		varchar 		integer(kb)		timestamp 			varchar			integer
+	//			integer 	varchar 		varchar 		varchar 		integer(kb)		timestamp 			varchar			varchar			integer
 	//	
 	//	Interfaces :
 	//	
