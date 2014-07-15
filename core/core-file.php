@@ -18,11 +18,8 @@
 	// 
 	// What does this do and what does it not
 	// 
-	//		 This core functions library will not try to determine file types or usage.
-	//		 Instead, it provides functions for general manipulation of file cache and
-	//		 fast access. For configuration loadings, it uses standard PHP objects for
-	//		 storage of results. This way it does not rely on any other core functions
-	//		 libraries.
+	//		 This core functions library will handle tasks including database manipulation.
+	//		 It uses its own database to handle file records etc.
 	//		 
 	// File meta etc.
 	// 
@@ -38,53 +35,46 @@
 	// 		and return them as standard objects. It also handles writing of configurations.
 	// 			
 	// 	Interfaces :
-	// 	
-	// 		Configurations : 
-	// 		
-	// 			File : config-file.config
-	// 			
-	// 			Keys : 
-	// 			
-	// 				# File storage configurations
-	// 				
-	// 				filestore_dir				#directory to store files
-	// 				filestore_rename_enabled	#rename files when stored
-	// 				filestore_rename_prefix		#prefix to be added to all file names renamed
-	// 				filestore_oversize_compress	#indicates if compression will be used for oversized files
-	// 				filestore_oversize_backup	#indicates what to do if compression fails
-	// 				filestore_oversize_size		#what size will be defined as oversized
-	// 				
-	// 				# File meta data generation configurations
-	// 				
-	// 				filemeta_mode				#mode of file meta data generation
-	// 				filemeta_field_originalname	#indicates if original file name will be included in meta
-	// 				filemeta_field_size			#indicates if file size will be included 
-	// 				filemeta_field_keywords		#indicates if keywords will be included
-	// 				filemeta_field_keywordnum	#number of keywords to be included if keywords will be included
-	// 				
-	// 				# Configuration loading configurations
-	// 				
-	// 				config_mode 				#mode of configuration loading
-	// 				config_write_validate		#validate if structure of configuration written is valid
-	// 				config_write_override 		#indicates if overriding existing configuration will be permitted
-	// 				
-	// 				
 	// 				
 	// 		Functions :
-
-	function core_file_load_config($file)
-	{
-		
-	}
-
-	function core_file_write_config($file)
-	{
-
-	}
-
-	function core_file_change_config($file)
-	{
-		
-	}
+	// 		 
+	// 			Return type 		Name of function 				parameters 							Function Description														Return Description 					Return Code( -99 for unkown error )
+	// 			
+	// 			// Configuration loading
+	// 			
+	// 			?, int	 			core_file_config_read 			$file, $section, $key  			 	Read a configuration value from given file, section, and key.				Value of key, return code 			-1 for file not found, -2 for section or key not found, -3 for invalid file content
+	// 			int 				core_file_config_write 			$file, $section, $key, $value 		Write configuration value to given key.										return code  						0 for written successfully, -1 for file not found, 1 for overrided existing config
+	// 			
+	// 			// Configuration caching
+	// 			
+	// 			int 				core_file_configcache_load 	 	$file, $section, $key 				Record configuration(s) in cache database. Section and Key are optional. 	return code  						0 for recorded successfully, -1 for file, section, or key not found, 1 for overriding existing records
+	// 			int 				core_file_configcache_unload 	$file, $section, $key 				Unload configuration(s) from cache database. Parameters are optional.	 	return code 						0 for unloaded, 1 for file, section, or key not found
+	// 			int 				core_file_configcache_reload 	$file, $section, $key 				Save changes and reload cache database. Parameters are optional.	 		return code 						0 for reloaded, 1 for changes saved, -1 for file, -2 for section, or key not found when trying to load
+	// 			?, int 				core_file_configcache_read 		$file, $section, $key 				Read a configuration value from given file, section, and key from cache. 	Value of key, return code 			-1 for file, section, or key not found in database when trying to load
+	// 			int 				core_file_configcache_write 	$file, $section, $key 				Write a configuration value to given key in database.						return code 						0 for written successfully, -1 for file, section, or key not found, 1 for overrided existing config
+	// 			
+	// 			// Dynamic file manipulation
+	// 			
+	// 			array, int 	 		core_file_store_movein 			$file, $info 		 				Move a existing file to storage, creating meta data  					 	Meta data, return code 	 		    -1 for missing file, -2 for invalid information
+	// 			int 				core_file_store_remove 			$meta 								Removing the file belonging to the meta 									return code 						0 for removed successfully, -1 for invalid meta, 1 for missing file
+	// 			array, int 			core_file_store_compress 		$meta 								Compress the file belonging to the meta, creating new meta data 			Meta data, return code 				-1 for missing file, -2 for invalid meta, -3 for compress error
+	// 			array, int 			core_file_store_uncompress 		$meta 								Uncompress the file belonging to the meta, creating new meta data 			Meta data, return code 				-1 for missing file, -2 for invalid meta, -3 for uncompress error
+	// 			
+	// 			// Dynamic file record manipulation
+	// 			
+	// 			int 				core_file_storerec_record 		$meta 								Record a meta data into dynamic file database, will check if file exist 	return code 						0 for recorded, -1 for invalid meta, -2 for missing file, 1 for overriding existing record
+	// 			array, int 			core_file_storerec_find 		$info								Find recorded meta data by information provided 							Meta data list 						-1 for invalid information
+ 	// 			
+	// 			// Static file manipulation
+	// 			
+	// 			int 				core_file_static_map 			$file, $id 							Map a static file to a id 													return code 						0 for successfully mapped, -1 for missing file, -2 for invalid id, 1 for overriding existing record
+	// 			string, int 		core_file_static_find 			$id 								Find the file of a existing id. This will test if the file exist 			File route, return code 			-1 for missing record, -2 for missing file
+	// 			
+	// 			// General file manipulation
+	// 			
+	// 			buffer, int 		core_file_gen_get 				$file 								return a file's content. Binary safe 										File content, return code  			-1 for missing file
+	// 			
+	// 			
+	// 			
 
 ?>
