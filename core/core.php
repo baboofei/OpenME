@@ -24,5 +24,34 @@
 	// This assembly will, for example, bond encryption and database functions together
 	// and provide general interface. This way all the core functions libraries can be maintained
 	// separately thus reduce maintaince difficulty.
+	// 
+	// Features to be implemented only within this general assembly:
+	// 
+	// 		core-usr : 
+	// 		
+	// 			Barely anything besides database controls. Core user control is design to work independently
+	// 			and no other libraries should interact with it.
+	// 			
+	// 			1.	Database for user information storage (core-usr + core-db)
+	// 			2.	Configuration loading (core-usr + core-file)
+	// 			
+	// 		core-db :
+	// 		
+	// 			1.	Default database configuration loading (core-db + core-file)
+	// 			2.	Database configuration storage (core-db + core-file)
+	// 			3.	Encryption for security (core-db + core-crypto)
+	// 			
+	// 		core-file :
+	// 		
+	// 			1.	Configuration loading and storage (core-file + core-db)
+	// 			2.	File cache meta data storage (core-file + core-db)
+	// 			3.	Cloud storage meta data storage (core-file + core-db)
+	// 			4.	File encryption (core-file + core-crypto)
+	// 			
+	// 		core-lib :
+	// 		
+	// 			1.	Configuration loading (core-lib + core-file)
+	// 			2.	Library information storage (core-lib + core-db)
+	// 			3.	Library meta data loading (core-lib + core-file)
 
 ?>
