@@ -81,9 +81,8 @@
 	// 				
 	// 				login_user_max_attempts	#max unsuccessful login attempts in times before action taken.
 	// 				login_user_max_timeout	#time in minutes before a user's unsuccessful login attempt record timeout.
-	// 				login_user_max_policy	#action to take when max login attempts reached for a user.
-	// 				login_user_capcha		#indicates if capchas will be used for logins
-	// 				
+	// 				login_user_max_policy	#action to take when max login attempts reached for a user
+.	// 				
 	// 				# User creation details
 	// 				
 	// 				max_user_name_length	#indicates the maxium number of characters in user names.
@@ -104,9 +103,4 @@
 	// 				hibernate_user_policy	#action to take when user hibernating timeout.
 	// 				
 	// 		Functions :
-	
-
-	
-
-
 ?>

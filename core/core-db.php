@@ -28,7 +28,7 @@
 	// a effective database connection will be essential for this library to function
 	// effectively.
 	// 
-	// Note this library, aside from core-fs, is the only core function libraries that
+	// Note this library, aside from core-file and core-crypto, is the only core function libraries that
 	// can be included in other core function libraries.
 	// 
 	// Supported Database Applications :
@@ -59,6 +59,12 @@
 	// 			func_id		func_name 		func_param		func_return 	func_version	func_isinuse
 	//			
 	//			integer 	varchar 		varchar(json)	varchar(json)	varchar 		boolean
+	//			
+	//		tb_core_file
+	//		
+	//			file_id 	file_name 		file_type 		file_keywords	file_size 		cache_time 			checksum 		requests
+	//			
+	//			integer 	varchar 		varchar 		varchar 		integer(kb)		timestamp 			varchar			integer
 	//	
 	//	Interfaces :
 	//	
@@ -76,11 +82,15 @@
 	//				datahost_funcdb_host	#Host of database used to store interface information
 	//				datahost_funcdb_usr		#User name for database used to store interface information
 	//				datahost_funcdb_pwd		#Password for database used to store interface information
+	//				datahost_filedb_host 	#Host of database used to store file loader metas
+	//				datahost_filedb_usr		#User name for database used to store file loader metas
+	//				datahost_filedb_pwd 	#Password for database used to store file loader metas
 	//				
 	//				# General data storage detail
 	//				
 	//				datahost_usrdb_dbname	#Name of the user information database (db_core_user)
 	//				datahost_funcdb_dbname	#Name of the interface information database (db_core_func)
+	//				datahost_filedb_dbname	#Name of the file loader meta database (db_core_file)
 	//				
 	//				# Automatic backup configuration
 	//				
