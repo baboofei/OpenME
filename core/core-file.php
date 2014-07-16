@@ -74,8 +74,30 @@
 	// 			
 	// 			buffer, int 		core_file_gen_get 				$file 								return a file's content. Binary safe 										File content, return code  			-1 for missing file
 	
+	// Whenever this file is loaded as a core library
+	// it will be recommended that it checks current working directory
+	// just to make sure relative file routes will work
+	// 
+	// If not, this file will attempt to fix the problem
+	// However, if this file is not properly placed under /core
+	// attemptions will fail
+
+	$root = dirname(dirname(__FILE__));
+
+	if(getcwd() != $root)
+	{
+		// It seems current working directory is not root
+		// Attempt to fix the problem
+		
+		chdir($root);
+
+		// Always use something like 'configuration/config-*.ini'
+		// rather than '/configuration/config-*.ini'
+	}
 	// These functions need to be implemented before any others
 	// in order for core-file to load configurations for itself
+	// 
+	// The config reading functions will always take sections
 	
 	function core_file_config_read($file, $section, $key)
 	{
@@ -137,6 +159,16 @@
 				{
 					$config_cont[$section][$key] = $value;
 
+					foreach($config_cont as $cont_section => $cont_section_cont)
+					{
+						file_put_contents($file, "$cont_section\n\n");
+						
+						foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
+						{
+							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+						}
+					}
+
 					return 1;
 				}
 				else
@@ -144,6 +176,16 @@
 					$config_cont[$section][$key] = $value;
 
 					return 0;
+
+					foreach($config_cont as $cont_section => $cont_section_cont)
+					{
+						file_put_contents($file, "$cont_section\n\n");
+						
+						foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
+						{
+							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+						}
+					}
 				}
 			}
 			else
@@ -151,6 +193,16 @@
 				$config_cont[$section] = array();
 
 				$config_cont[$section][$key] = $value;
+
+				foreach($config_cont as $cont_section => $cont_section_cont)
+				{
+					file_put_contents($file, "$cont_section\n\n");
+					
+					foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
+					{
+						file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+					}
+				}
 
 				return 0;
 			}
@@ -161,6 +213,9 @@
 			return -1;
 		}
 	}
+
+	// These functions require previously implemented functions
+	// in order to read database configurations properly
 
 	function core_file_configcache_load($file, $section, $key)
 	{
