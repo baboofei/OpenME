@@ -39,7 +39,7 @@
 	// 		Functions :
 	// 		 
 	// 			Return type 		Name of function 				parameters 							Function Description														Return Description 					Return Code( -99 for unkown error )
-	// 			
+	// 	
 	// 			// Configuration loading
 	// 			
 	// 			?, int	 			core_file_config_read 			$file, $section, $key  			 	Read a configuration value from given file, section, and key.				Value of key, return code 			-1 for file not found, -2 for section or key not found, -3 for invalid file content
@@ -63,7 +63,7 @@
 	// 			// Dynamic file record manipulation
 	// 			
 	// 			int 				core_file_storerec_record 		$meta 								Record a meta data into dynamic file database, will check if file exist 	return code 						0 for recorded, -1 for invalid meta, -2 for missing file, 1 for overriding existing record
-	// 			array, int 			core_file_storerec_find 		$info								Find recorded meta data by information provided 							Meta data list 						-1 for invalid information
+	// 			array, int 			core_file_storerec_find 		$info								Find recorded meta data by information provided 							Meta data list 						-1 for invalid information	
  	// 			
 	// 			// Static file manipulation
 	// 			
@@ -73,8 +73,117 @@
 	// 			// General file manipulation
 	// 			
 	// 			buffer, int 		core_file_gen_get 				$file 								return a file's content. Binary safe 										File content, return code  			-1 for missing file
-	// 			
-	// 			
-	// 			
+	
+	// These functions need to be implemented before any others
+	// in order for core-file to load configurations for itself
+	
+	function core_file_config_read($file, $section, $key)
+	{
 
+		if(file_exists($file))
+		{
+			$config_cont = parse_ini_file($file, true);
+
+			if(!$config_cont)
+			{
+				return -3;
+			}
+
+			if(array_key_exists($section, $config_cont))
+			{
+				if(array_key_exists($key, $config_cont[$section]))
+				{
+					return $config_cont[$section][$key];
+				}
+				else
+				{
+					return -2;
+				}
+			}
+			else
+			{
+				return -2;
+			}
+		}
+		else
+		{
+			return -1;
+		}
+	}
+
+	function core_file_config_write($file, $section, $key, $value)
+	{
+		// What this function does is it reads the existing configuration
+		// file strings to a variable
+		// 
+		// and change only the required parts
+		// then put it back into the given file
+		// 
+		// For all code subroutes with return code 0 or positive integer
+		// DO NOT forget to save the array to file!
+		
+		if(file_exists($file))
+		{
+			$config_cont = parse_ini_file($file, true);
+
+			if(!$config_cont)
+			{
+				return -3;
+			}
+
+			if(array_key_exists($section, $config_cont))
+			{
+				if(array_key_exists($key, $config_cont[$section]))
+				{
+					$config_cont[$section][$key] = $value;
+
+					return 1;
+				}
+				else
+				{
+					$config_cont[$section][$key] = $value;
+
+					return 0;
+				}
+			}
+			else
+			{
+				$config_cont[$section] = array();
+
+				$config_cont[$section][$key] = $value;
+
+				return 0;
+			}
+
+		}
+		else
+		{
+			return -1;
+		}
+	}
+
+	function core_file_configcache_load($file, $section, $key)
+	{
+
+	}
+
+	function core_file_configcache_unload($file, $section, $key)
+	{
+
+	}
+
+	function core_file_configcache_reload($file, $section, $key)
+	{
+
+	}
+
+	function core_file_configcache_read($file, $section, $key)
+	{
+
+	}
+
+	function core_file_configcache_write($file, $section, $key)
+	{
+
+	}
 ?>

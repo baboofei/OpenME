@@ -39,38 +39,17 @@
 	// 		
 	// Interfaces :
 	// 
-	// 		Configurations : 
-	// 		
-	// 			Files : config-services.config
-	// 			
-	// 			Keys :
-	// 			
-	// 				# General service usage configurations
+	// 		Functions :
 	// 				
-	// 				service_enabled				#indicates if services are enabled
-	// 				
-	// 				# Validating configurations
-	// 				
-	// 				service_validate_enabled	#indicates if clients will need to be validated before using services
-	// 				service_validate_mode		#indicates mode to be used for client validation
-	// 				
-	// 				# Client version control configurations
-	// 				
-	// 				version_check_enabled		#enable version check
-	// 				version_allowed_newest		#newest version of client allowed to access service
-	// 				version_allowed_oldest		#oldest version of client allowed
-	// 				
-	// 				# Service version control configurations
-	// 				
-	// 				svcver_check_enabled		#enable services version check
-	// 				svcver_fallback				#action to take when a service's version mismatch requested version
-	// 				svcver_exceptions			#a list of services excluded from version check
-	// 				
-	// 				# Return type configurations
-	// 				
-	// 				return_field_svcname		#indicates if service name will be included for return JSONs
-	// 				return_field_svcver			#indicates if service version will be included
-	// 				return_field_err			#indicates if error code will be included if present
+	// 			Return type 		Name of function 				parameters 							Function Description														Return Description 					Return Code( -99 for unkown error )
+	//	
+	//			int 				core_svc_service_register		$meta 								Register a service with given meta data 									ID, return code 					-1 for invalid meta data
+	//			int 				core_svc_service_unreg 			$id 								Remove a service from registration database 								return code 						0 for removed successfully, 1 for service not present
+	//			
+	//			array, int 			core_svc_interface_parseparam	$json 								Parse a JSON object into parameter meta data 								Parameters, return code 			-1 for invalid JSON
+	//			int 				core_svc_interface_checkparam 	$id 								Compare created parameter with service's required parameters 				return code 						0 for comparasion passed, -1 for comparassion unsucessful
+	//			array, int 			core_svc_interface_callsvc 		$id, $param 						Call a service with ID with given parameters 								Result, return code 				-1 for missing service in database, -2 for invalid parameters
+	//			string 				core_svc_interface_parseresult 	$result 							Parse a array result object into JSON object string 						Result 								.
 	
 	
 
