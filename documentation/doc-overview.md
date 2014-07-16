@@ -67,9 +67,13 @@ OpenME is designed under a post-MVC architecture.
 
 The core function libraries, or "Core", provides very basic functions, supporting user validation, database control, push notification and realtime connetion, file type management, encryption for securities, etc. These functions are 'hidden' from the client-side interfaces once finished.
 
+The core function libraries are designed not to rely on each others to function properly. None of the core functions libraries will need to include or require other files to function. A general interface is implemented for the ease of further usage.
+
 ### Libraries
 
 The "Libraries" provides advanced functions based on the "Core". Libraries allow features like avatar, user customized information, posts and forums etc. to be implemented. Libraries can be replaced by other third-party products. Links to third-party service providers (GPlus, Tencent, the original ME etc.) will as well be implemented in libraries. Libraries should as well be hidden from client-side's point of view.
+
+Libraries can include each others for best optimized code reuse.
 
 ### Services
 
@@ -77,9 +81,13 @@ The "Libraries" provides advanced functions based on the "Core". Libraries allow
 
 For the ease of client side development, a standard JavaScript library providing basic functions to connect to services via ajax will be provided.
 
+Together with libraries, services formed a full controller, and some model features of a post-MVC design. Client side implementations played the role of views, but mostly models. Interfaces between client and services are designed to be safe under all usage conditions.
+
 ### Administratives
 
 "Administratives" implements functions such as start and stop of software, initialization of database and configurations etc. Apart from what its name suggests, Administratives are not administrator tools. OpenME is designed to have no administrator users, thus providing absolute security and ease of management.
+
+Administratives contains testing scripts as well, these scripts can be used to test if one library's function interfaces have the expected behaviors.
 
 ### Configurations
 
