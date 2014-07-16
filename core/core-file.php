@@ -64,15 +64,22 @@
 	// 			
 	// 			int 				core_file_storerec_record 		$meta 								Record a meta data into dynamic file database, will check if file exist 	return code 						0 for recorded, -1 for invalid meta, -2 for missing file, 1 for overriding existing record
 	// 			array, int 			core_file_storerec_find 		$info								Find recorded meta data by information provided 							Meta data list 						-1 for invalid information	
+	// 			int 				core_file_storerec_remove 		$meta 								Remove given meta data from database. Meta data must be exactly the same 	return code 						0 for removed successfully, -1 for file meta not present
  	// 			
 	// 			// Static file manipulation
 	// 			
 	// 			int 				core_file_static_map 			$file, $id 							Map a static file to a id 													return code 						0 for successfully mapped, -1 for missing file, -2 for invalid id, 1 for overriding existing record
-	// 			string, int 		core_file_static_find 			$id 								Find the file of a existing id. This will test if the file exist 			File route, return code 			-1 for missing record, -2 for missing file
+	// 			buffer, int 		core_file_static_find 			$id 								Find the file of a existing id.									 			File content, return code 			-1 for missing record, -2 for missing file
 	// 			
-	// 			// General file manipulation
+	// 		Databases :
+	// 		
+	// 			Tables :
 	// 			
-	// 			buffer, int 		core_file_gen_get 				$file 								return a file's content. Binary safe 										File content, return code  			-1 for missing file
+	// 				core_configdb
+	// 				
+	// 				id 			config_key 			config_value 			config_section 			config_file
+	// 				
+	// 				integer 	varchar 			varchar 				varchar 				varchar
 	
 	// Whenever this file is loaded as a core library
 	// it will be recommended that it checks current working directory
@@ -81,6 +88,8 @@
 	// If not, this file will attempt to fix the problem
 	// However, if this file is not properly placed under /core
 	// attemptions will fail
+
+	// TODO: Provide better solution to this file problem
 
 	$root = dirname(dirname(__FILE__));
 
@@ -98,6 +107,9 @@
 	// in order for core-file to load configurations for itself
 	// 
 	// The config reading functions will always take sections
+	// 
+	// This might cause problem if this file is being required
+	// or included
 	
 	function core_file_config_read($file, $section, $key)
 	{
@@ -159,13 +171,15 @@
 				{
 					$config_cont[$section][$key] = $value;
 
+					file_put_contents($file, "");
+
 					foreach($config_cont as $cont_section => $cont_section_cont)
 					{
-						file_put_contents($file, "$cont_section\n\n");
+						file_put_contents($file, "\n[$cont_section]\n\n", FILE_APPEND);
 						
 						foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
 						{
-							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n", FILE_APPEND);
 						}
 					}
 
@@ -175,15 +189,17 @@
 				{
 					$config_cont[$section][$key] = $value;
 
-					return 0;
+					return 3;
+
+					file_put_contents($file, "");
 
 					foreach($config_cont as $cont_section => $cont_section_cont)
 					{
-						file_put_contents($file, "$cont_section\n\n");
+						file_put_contents($file, "\n[$cont_section]\n\n", FILE_APPEND);
 						
 						foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
 						{
-							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+							file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n", FILE_APPEND);
 						}
 					}
 				}
@@ -194,13 +210,15 @@
 
 				$config_cont[$section][$key] = $value;
 
+				file_put_contents($file, "");
+
 				foreach($config_cont as $cont_section => $cont_section_cont)
 				{
-					file_put_contents($file, "$cont_section\n\n");
+					file_put_contents($file, "\n[$cont_section]\n\n", FILE_APPEND);
 					
 					foreach($cont_section_cont as $cont_section_key => $cont_section_key_cont)
 					{
-						file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n");
+						file_put_contents($file, "$cont_section_key=$cont_section_key_cont\n", FILE_APPEND);
 					}
 				}
 
@@ -216,11 +234,37 @@
 
 	// These functions require previously implemented functions
 	// in order to read database configurations properly
+	
+	$core_file_configdb_host = core_file_config_read("configuration/config-databases.ini", "Core_Database_Configurations", "Configuration_Database_Host");
+	$core_file_configdb_usr = core_file_config_read("configuration/config-databases.ini", "Core_Database_Configurations", "Configuration_Database_Username");
+	$core_file_configdb_pwd = core_file_config_read("configuration/config-databases.ini", "Core_Database_Configurations", "Configuration_Database_Password");
+	$core_file_configdb_name = core_file_config_read("configuration/config-databases.ini", "Core_Database_Configurations", "Configuration_Database_Name");
+
+	$core_default_db_name = core_file_config_read("configuration/config-databases.ini", "General_Database_Configurations", "Default_Backup_Name");
+
+	// Database structure as defined above in inline documentations
 
 	function core_file_configcache_load($file, $section, $key)
 	{
+		$db_conn = mysql_connect($core_file_configdb_host, $core_file_configdb_usr, $core_file_configdb_pwd);
 
+		if($db_conn)
+		{
+			if(mysql_select_db($core_default_db_name))
+			{
+				$config_to_rec_value = core_file_config_read($file, $section, $key);
+
+				if($config_to_rec_value != -1 || -2 || -3)
+				{
+					$query = '';	// TODO: Create correspondent query here
+
+					$query_safe = mysql_real_escape_string($query);
+				}
+			}
+		}
 	}
+
+	// TODO: Add these functions
 
 	function core_file_configcache_unload($file, $section, $key)
 	{
@@ -238,6 +282,57 @@
 	}
 
 	function core_file_configcache_write($file, $section, $key)
+	{
+
+	}
+
+	// These functions take standard file meta data as parameters
+
+	function core_file_store_movein($file, $info)
+	{
+
+	}
+
+	function core_file_store_remove($meta)
+	{
+
+	}
+
+	function core_file_store_compress($meta)
+	{
+
+	}
+
+	function core_file_store_uncompress($meta)
+	{
+
+	}
+
+	// These functions take meta data and uses database operations
+	
+	function core_file_storerec_record($meta)
+	{
+
+	}
+
+	function core_file_storerec_find($meta)
+	{
+
+	}
+
+	function core_file_storerec_remove($meta)
+	{
+
+	}
+
+	// These functions play around with static files and record them in databases
+	
+	function core_file_static_map($file, $id)
+	{
+
+	}
+
+	function core_file_static_find($id)
 	{
 
 	}
