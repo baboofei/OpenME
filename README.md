@@ -15,7 +15,7 @@ No estimated development schedule available.
 Chinese documentation
 ------
 
-Even though me (BabooClaude) speak Chinese as my mother-language, I felt more comfortable documenting the OpenME software kit in English, as my English proficiency is sufficient for such task.
+Even though me (BabooFei) speak Chinese as my mother-language, I felt more comfortable documenting the OpenME software kit in English, as my English proficiency is sufficient for such task.
 
 If you are willing to translate any of the documentation / readme into Chinese, feel free to contact me. I would personally appreciate your contribution in advance. Thank you, stranger!
 
