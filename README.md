@@ -20,7 +20,7 @@ Even though me (BabooFei) speak Chinese as my mother-language, I felt more comfo
 If you are willing to translate any of the documentation / readme into Chinese, feel free to contact me. I would personally appreciate your contribution in advance. Thank you, stranger!
 
 ### For a Chinese version of this readme, visit
-
+[README_CN.md](https://github.com/baboofei/OpenME/blob/master/README_CN.md)
 
 Note for contributors
 ------
